@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8e73f9b3-45a3-485c-9047-83d46a42ed5a" name="VM" url="http://145.100.135.101/">
+        <fileTransfer rootFolder="/usr/share/solr-php-ui" accessType="SFTP" host="145.100.135.101" port="22" sshConfigId="60422625-2171-4e24-ba00-a840ddeabbeb" sshConfig="siamak@145.100.135.101:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
