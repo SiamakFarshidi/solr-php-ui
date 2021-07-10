@@ -73,7 +73,7 @@ if ($start > 1) {
 
         <div class="filterItems" style="width:50%;">
             <div style="display:block; clear:both;">
-                <div classsolr-php-ui="filterItems">
+                <div class="filterItems">
                     <input type="text" id="txtLong" name="txtLong" class="form-control bg-light border-1 big" style="border:1px solid blue;" placeholder="Longitude..." value="<?=$_POST['txtLong']; ?>">
                 </div>
                 <div class="filterItems">
