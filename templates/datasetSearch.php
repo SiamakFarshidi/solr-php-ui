@@ -45,7 +45,15 @@ if ($start > 1) {
     $is_prev_page = false;
 }
 
+function RemoveSpecialChar($str) {
 
+    // Using str_replace() function
+    // to replace the word
+    $res = str_replace( array('[', ']'),'', $str);
+
+    // Returning the result
+    return $res;
+}
 
 ?>
 
@@ -99,7 +107,11 @@ if ($start > 1) {
     </form>
 </div>
 
-<?php if($total==0){ print t('No results'); exit(0);} ?>
+<?php
+if($total==0){ print t('No results');}
+?>
+
+<?php if($total>0): ?>
 
 <div class="pages" style="width:100%; text-align:center; font-weight: bold; color:#035ba8; margin-bottom:10px;" >
     <span
@@ -156,23 +168,12 @@ if ($start > 1) {
     </span>
 </div>
 
+<?php endif;?>
+
 
 <div style="width:70%; display: inline-block;">
-
 <?php
-
-function RemoveSpecialChar($str) {
-
-    // Using str_replace() function
-    // to replace the word
-    $res = str_replace( array('[', ']'),'', $str);
-
-    // Returning the result
-    return $res;
-}
-
-
-
+if($total>0):
 $geolocation="";
 $currentGeolocation="";
 foreach ($response as $result):
@@ -226,8 +227,13 @@ foreach ($response as $result):
 
     <?php
 endforeach;
+ endif;
 ?>
 </div>
+
+
+
+<?php if($total>0): ?>
 
 <div style="width:29%; display:inline-block; border:1px solid lightgray; border-radius:3px;   box-shadow:0 0 2px 2px #EAEDED; margin-bottom:25px;" id="mapid">
 </div>
@@ -258,9 +264,9 @@ endforeach;
 		zoomOffset: -1
 	}).addTo(mymap);
 
-
-
 </script>
+
+
 
 <?php
     echo "<script>";
@@ -324,8 +330,9 @@ endforeach;
 </div>
 
 
-
+<?php endif;?>
 <php?
+
 //----------------------------------------------------------------------------------------------------------------------
 function CallAPI($method, $url, $data = false)
 {
