@@ -13,8 +13,11 @@ if ($_POST['txtLong']!="") {$searchCriteria=$searchCriteria . "&lon=" . $_POST['
 if ($_POST['txtLat']!="") {$searchCriteria=$searchCriteria . "&lat=" . $_POST['txtLat'];}
 if ($_POST['txtFrom']!="") {$searchCriteria=$searchCriteria . "&year_from=" . $_POST['txtFrom'];}
 if ($_POST['txtTo']!="") {$searchCriteria=$searchCriteria . "&year_to=" . $_POST['txtTo'];}
+$searchCriteria = str_replace(' ', '%20','http://localhost/search-apps/dataset_elastic/rest?term='. $query.$searchCriteria);
 
-$response = file_get_contents('http://localhost/search-apps/dataset_elastic/rest?term='. $query. $searchCriteria);
+echo $searchCriteria;
+$response = file_get_contents($searchCriteria);
+
 //$arr=json_decode($response,true);
 //var_dump($arr);
 
@@ -55,6 +58,19 @@ function RemoveSpecialChar($str) {
     return $res;
 }
 
+function limitTextWords($content = false, $limit = false, $stripTags = false, $ellipsis = false)
+{
+    if ($content && $limit) {
+        $content = ($stripTags ? strip_tags($content) : $content);
+        $content = explode(' ', $content, $limit+1);
+        array_pop($content);
+        if ($ellipsis) {
+            array_push($content, '...');
+        }
+        $content = implode(' ', $content);
+    }
+    return $content;
+}
 ?>
 
 <div style="padding:20px; margin:16px; margin-top:0px; background-color:white; width:100%; border:1px solid lightgray; border-radius:3px;   box-shadow:0 0 2px 2px #EAEDED;">
@@ -205,6 +221,7 @@ foreach ($response as $result):
         </div>
         <div class="card-body">
          <div style="margin-bottom:10px;" class="date"><?= $result->temporal; ?> </div>
+         <div> <span class="facet-name"> Description </span> <span class="textualItem"> <?= limitTextWords($result->abstract,100,true, true);  ?></span> </div>
          <div> <span class="facet-name"> Distributor </span> <span class="textualItem"> <?= $result->distributor;  ?></span> </div>
          <div> <span class="facet-name"> Station </span> <span class="textualItem"> <?= $result->station;  ?></span> </div>
          <div> <span class="facet-name">Domain </span> <span class="textualItem"> <?= $result->genre;  ?> </span> </div>
@@ -212,6 +229,7 @@ foreach ($response as $result):
          <div>
              <span class="facet-name"> Related to </span>
              <?php
+                $cnt=0;
                  foreach ($result->keywords as $value):
                       $image=getIRImage($value);
                       if ($image!="") {
@@ -219,7 +237,13 @@ foreach ($response as $result):
                       }
                 endforeach;?>
         </div>
-        <div> <span class="facet-name"> keywords </span> <span class="textualItem">  <?php foreach ($result->keywords as $keyword) {echo "<span class='items'>". $keyword. "</span>";} ?></span> </div>
+        <div> <span class="facet-name"> keywords </span> <span class="textualItem">
+        <?php
+            foreach ($result->keywords as $keyword){
+                $cnt++;
+                if($cnt>15){break;}
+                echo "<span class='items'>". $keyword. "</span>";
+            } ?></span> </div>
 
  </div>
  </div>
@@ -334,6 +358,8 @@ endforeach;
 <php?
 
 //----------------------------------------------------------------------------------------------------------------------
+
+
 function CallAPI($method, $url, $data = false)
 {
     $curl = curl_init();
@@ -369,3 +395,4 @@ function CallAPI($method, $url, $data = false)
 }
 
 ?>
+
