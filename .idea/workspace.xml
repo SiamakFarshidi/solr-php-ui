@@ -20,6 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad9a1188-3888-4a81-a72d-4860f7a2e609" name="Default Changelist" comment="updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/datasetSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/datasetSearch.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +55,9 @@
     <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="SiamakFarshidi" />
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="solr-php-ui" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/templates/datasetSearch.php" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1gdOnJn4XxekZcAtBa41p84Bi4X" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -91,13 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598216209098</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Modification of search results (icons, etc.)">
-      <created>1602750628226</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1602750628226</updated>
     </task>
     <task id="LOCAL-00011" summary="Modification of search results (icons, etc.)">
       <created>1603583188122</created>
@@ -435,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626127661092</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="updated">
+      <created>1626131371846</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1626131371846</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

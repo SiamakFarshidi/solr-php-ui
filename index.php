@@ -1184,67 +1184,69 @@ if ($view == 'rss') {
 }
 function getIRImage($IR) {
     $image = "";
-    if ($IR == "DANUBIUS") {
+    if (strpos($IR, "DANUBIUS") || $IR== "DANUBIUS") {
         $image = "DANUBIUS-RI.png";
-    } else if ($IR == "EMPHASIS") {
+    } else if (strpos($IR, "DANUBIUS") || $IR == "EMPHASIS") {
         $image = "EMPHASIS.png";
-    } else if ($IR == "SeaDataNet") {
+    } else if (strpos($IR, "SeaDataNet") || $IR == "SeaDataNet") {
         $image = "SeaDataNet.jpg";
-    } else if ($IR == "IS-ENES2") {
+    } else if (strpos($IR, "IS-ENES2") || $IR == "IS-ENES2") {
         $image = "ISENES.png";
-    } else if ($IR == "EuroGOOS") {
+    } else if(strpos($IR, "DANUBIUS") || $IR == "EuroGOOS") {
         $image = "EuroGOOS.png";
-    } else if ($IR == "ARISE") {
+    } else if(strpos($IR, "EuroGOOS") || $IR == "ARISE") {
         $image = "arise.jpg";
-    } else if ($IR == "ELIXIR") {
+    } else if(strpos($IR, "ELIXIR") || $IR == "ELIXIR") {
         $image = "ELIXIR.png";
-    } else if ($IR == "EUROCHAMP-2020") {
+    } else if(strpos($IR, "EUROCHAMP-2020") || $IR == "EUROCHAMP-2020") {
         $image = "EUROCHAMP.png";
-    } else if ($IR == "CETAF") {
+    } else if(strpos($IR, "CETAF") || $IR == "CETAF") {
         $image = "CETAF.jpeg";
-    } else if ($IR == "ACTRIS") {
+    } else if(strpos($IR, "ACTRIS") || $IR == "ACTRIS") {
         $image = "actris.png";
-    } else if ($IR == "LTER-Europe") {
+    } else if(strpos($IR, "LTER-Europe") || $IR == "LTER-Europe") {
         $image = "LTER.jpg";
-    } else if ($IR == "INTERACT") {
+    } else if(strpos($IR, "INTERACT") || $IR == "INTERACT") {
         $image = "INTERACT.jpg";
-    } else if ($IR == "FixO3") {
+    } else if(strpos($IR, "FixO3") || $IR == "FixO3") {
         $image = "fixo3.png";
-    } else if ($IR == "SIOS") {
+    } else if(strpos($IR, "SIOS") || $IR == "SIOS") {
         $image = "sios.png";
-    } else if ($IR == "Euro-Argo") {
+    } else if(strpos($IR, "Euro-Argo") || $IR == "Euro-Argo") {
         $image = "euroArgo.png";
-    } else if ($IR == "EUFAR") {
+    } else if(strpos($IR, "EUFAR") || $IR == "EUFAR") {
         $image = "EUFAR.jpg";
-    } else if ($IR == "JERICO-NEXT") {
+    } else if(strpos($IR, "JERICO-NEXT") || $IR == "JERICO-NEXT") {
         $image = "JERICO.jpg";
-    } else if ($IR == "AnaEE") {
+    } else if(strpos($IR, "AnaEE") || $IR == "AnaEE") {
         $image = "anaee.png";
-    } else if ($IR == "IAGOS") {
+    } else if(strpos($IR, "IAGOS") || $IR == "IAGOS") {
         $image = "IAGOSERI.png";
-    } else if ($IR == "EUROFLEETS2") {
+    } else if(strpos($IR, "EUROFLEETS2") || $IR == "EUROFLEETS2") {
         $image = "Eurofleets.jpg";
-    } else if ($IR == "EMBRC") {
+    } else if(strpos($IR, "EMBRC") || $IR == "EMBRC") {
         $image = "EMBRC.png";
-    } else if ($IR == "EISCAT_3D") {
+    } else if(strpos($IR, "EISCAT_3D") || $IR == "EISCAT_3D") {
         $image = "EISCAT3D.png";
-    } else if ($IR == "ESONET-Vi") {
+    } else if(strpos($IR, "ESONET-Vi") || $IR == "ESONET-Vi") {
         $image = "ESONET.jpg";
-    } else if ($IR == "EPOS") {
+    } else if(strpos($IR, "EPOS") || $IR == "EPOS") {
         $image = "EPOS.png";
-    } else if ($IR == "EMSO") {
+    } else if(strpos($IR, "EMSO") || $IR == "EMSO") {
         $image = "EMSOERIC.png";
-    } else if ($IR == "eLTER") {
+    } else if(strpos($IR, "eLTER") || $IR == "eLTER") {
         $image = "elterRI.png";
-    } else if ($IR == "ICOS") {
+    } else if (strpos($IR, "ICOS") || $IR == "ICOS") {
         $image = "ICOS.jpg";
-    } else if ($IR == "LifeWatch") {
+    }else if (strpos($IR, "NSIDR") || $IR == "NSIDR") {
+        $image = "icedig-eu.jpg";
+    } else if(strpos($IR, "LifeWatch") || $IR == "LifeWatch") {
         $image = "LifeWatchERIC.png";
-    } else if ($IR == "SDN") {
+    } else if(strpos($IR, "SDN") || $IR == "SDN") {
         $image = "";
-    } else if ($IR == "AQUACOSM") {
+    } else if(strpos($IR, "AQUACOSM") || $IR == "AQUACOSM") {
         $image = "AQUACOSM.png";
-    }else if ($IR == "DiSSCo") {
+    }else if(strpos($IR, "DiSSCo") || $IR == "DiSSCo") {
         $image = "Dissco.png";
     }
     else if($IR =="EUDAT"){

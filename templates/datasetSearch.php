@@ -230,12 +230,21 @@ foreach ($response as $result):
              <span class="facet-name"> Related to </span>
              <?php
                 $cnt=0;
-                 foreach ($result->keywords as $value):
-                      $image=getIRImage($value);
-                      if ($image!="") {
-                        echo "<img style='max-width:100px; max-height:50px; width:auto; height:auto; padding:10px;' src='images/RIs/". $image. "' />" ;
-                      }
-                endforeach;?>
+                $image=getIRImage($result->distributor);
+                if ($image!="") {
+                    echo "<img style='max-width:100px; max-height:50px; width:auto; height:auto; padding:10px;' src='images/RIs/". $image. "' />" ;
+                 }
+                 else{
+                     foreach ($result->keywords as $value):
+                          $image=getIRImage($value);
+                          if ($image!="") {
+                            echo "<img style='max-width:100px; max-height:50px; width:auto; height:auto; padding:10px;' src='images/RIs/". $image. "' />" ;
+                            break;
+                          }
+                    endforeach;
+                }
+                ?>
+
         </div>
         <div> <span class="facet-name"> keywords </span> <span class="textualItem">
         <?php
