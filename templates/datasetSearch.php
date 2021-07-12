@@ -15,7 +15,7 @@ if ($_POST['txtFrom']!="") {$searchCriteria=$searchCriteria . "&year_from=" . $_
 if ($_POST['txtTo']!="") {$searchCriteria=$searchCriteria . "&year_to=" . $_POST['txtTo'];}
 $searchCriteria = str_replace(' ', '%20','http://localhost/search-apps/dataset_elastic/rest?term='. $query.$searchCriteria);
 
-echo $searchCriteria;
+//echo $searchCriteria;
 $response = file_get_contents($searchCriteria);
 
 //$arr=json_decode($response,true);
