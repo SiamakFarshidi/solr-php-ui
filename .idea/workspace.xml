@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ad9a1188-3888-4a81-a72d-4860f7a2e609" name="Default Changelist" comment="updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/datasetSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/datasetSearch.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,13 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598216209098</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Modification of search results (icons, etc.)">
-      <created>1603583188122</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1603583188122</updated>
     </task>
     <task id="LOCAL-00012" summary="Modification of search results (icons, etc.)">
       <created>1603676656116</created>
@@ -440,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626131371846</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="updated">
+      <created>1626133527266</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1626133527267</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
