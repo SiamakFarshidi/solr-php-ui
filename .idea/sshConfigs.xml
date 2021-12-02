@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="145.100.135.101" id="60422625-2171-4e24-ba00-a840ddeabbeb" keyPath="C:\SSH key (Siamak)\SiamakSSH" port="22" nameFormat="DESCRIPTIVE" username="siamak" />
+    </configs>
+  </component>
+</project>

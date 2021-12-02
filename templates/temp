@@ -1,0 +1,11 @@
+["identifier"]=> string(30) "11676/316GaxHE31I8QDAT2Bfy8SfD"
+["name"]=> string(26) "GO175_2021-132-0000dat.txt"
+["temporal"]=> string(10) "2021-05-12"
+["author"]=> array(1) { [0]=> string(15) "Ingunn Skjelvan" }
+["landing_page"]=> string(56) "https://meta.icos-cp.eu/objects/316GaxHE31I8QDAT2Bfy8SfD"
+["keywords"]=> array(1) { [0]=> string(4) "ICOS" }
+["distributor"]=> string(4) "ICOS"
+["station"]=> string(21) "Ocean Thematic Centre"
+["genre"]=> string(10) "Ocean data"
+["longitude"]=> string(7) "11.4429"
+["latitude"]=> string(7) "53.0657" }
