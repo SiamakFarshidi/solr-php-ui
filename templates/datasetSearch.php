@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 
 <?php
-echo CallAPI("POST", "http://localhost/search-apps/dataset_elastic/genericsearch?term=icos" );
+//echo CallAPI("POST", "http://localhost/search-apps/dataset_elastic/genericsearch?term=icos");
 $searchCriteria = str_replace(' ', '%20', 'http://localhost/search-apps/dataset_elastic/genericsearch?term=' . $query);
 
 //echo $searchCriteria;
@@ -96,78 +96,82 @@ if ($total == 0)
 <?php if ($total > 0): ?>
 
 <div class="pages" style="width:100%; text-align:center; font-weight: bold; color:#035ba8; margin-bottom:10px;" >
-    <span
-      class="pagination-previous <?php if (!$is_prev_page):
+   <span
+     class="pagination-previous <?php if (!$is_prev_page):
         print 'disabled';
     endif; ?>">
-      <?php if ($is_prev_page)
+     <?php if ($is_prev_page)
     { ?>
-      <a onclick="waiting_on();" href="<?php print $link_prev; ?>">
-        <?php
+     <a onclick="waiting_on();" href="<?php print $link_prev; ?>">
+       <?php
     } ?>
-     <?php //print t('prev')
-     ?>
-        <?php if ($is_prev_page)
+    <?php //print t('prev')
+
+?>
+       <?php if ($is_prev_page)
     { ?> <i class="fas fa-chevron-circle-left" style="font-size:large;"></i> </a> &nbsp; <?php
     } ?>
-    </span>
-    <span>
-      <?php
+   </span>
+   <span>
+     <?php
     if (empty($query) and $start == 1)
     {
 ?>
-        <?php echo t('newest_documents') ?>
-        <?=$stat_limit ?>
-        <?php echo t('newest_documents_of') ?>
-        <?=$total ?>
-        <?php echo t('newest_documents_of_total') ?>
-        <?php
+       <?php echo t('newest_documents') ?>
+       <?=$stat_limit ?>
+       <?php echo t('newest_documents_of') ?>
+       <?=$total ?>
+       <?php echo t('newest_documents_of_total') ?>
+       <?php
     }
     else
     {
 ?>
-        <?php if ($view == "preview")
+       <?php if ($view == "preview")
         { ?>
-          <?php echo t('result'); ?>
-          <?=$page ?>
-          <?php echo t('result of'); ?>
-          <?=$total ?>
-        <?php
+         <?php echo t('result'); ?>
+         <?=$page ?>
+         <?php echo t('result of'); ?>
+         <?=$total ?>
+       <?php
         }
         else
         { ?>
-          <?php echo t('page'); ?>
-          <?=$page ?>
-          <?php echo t('page of'); ?>
-          <?=$pages ?>
-          (<?php echo t('results'); ?>
-          <?=$start ?>
-          <?php echo t('result to'); ?>
-          <?=$end ?>
-          <?php echo t('result of'); ?>
-          <?=$total ?>
-          )
-          <?php
+         <?php echo t('page'); ?>
+         <?=$page ?>
+         <?php echo t('page of'); ?>
+         <?=$pages ?>
+         (<?php echo t('results'); ?>
+         <?=$start ?>
+         <?php echo t('result to'); ?>
+         <?=$end ?>
+         <?php echo t('result of'); ?>
+         <?=$total ?>
+         )
+         <?php
         }
     }
 ?>
-    </span>
-    <span
-      class="pagination-next <?php if (!$is_next_page):
+   </span>
+   <span
+     class="pagination-next <?php if (!$is_next_page):
         print 'disabled';
     endif; ?>">
-      <?php if ($is_next_page)
+     <?php if ($is_next_page)
     { ?>
-      <a onclick="waiting_on();" href="<?php print $link_next; ?>">
-        <?php
+     <a onclick="waiting_on();" href="<?php print $link_next; ?>">
+
+<?php
     }
-    ?>
-      <?php //print t('next')
-     ?>
-        <?php if ($is_next_page)
+?>
+
+     <?php //print t('next')
+
+?>
+       <?php if ($is_next_page)
     { ?>&nbsp; <i class="fas fa-chevron-circle-right" style="font-size:large;"></i></a><?php
     } ?>
-    </span>
+   </span>
 </div>
 <?php
 endif; ?>
@@ -203,25 +207,25 @@ if ($total > 0):
         }
 
 ?>
-   <div class="col-lg-12 mb-12" id="<?=$result_nr
+  <div class="col-lg-12 mb-12" id="<?=$result_nr
 ?>">
-      <!-- Illustrations -->
-      <div class="card shadow mb-4 border-left-primary ">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">
-            <a href="<?=$result->landing_page; ?>" target="_blank"> <?=$result->name; ?> </a>
-          </h6>
-        </div>
-        <div class="card-body">
-         <div style="margin-bottom:10px;" class="date"><?=$result->temporal; ?> </div>
-         <div> <span class="facet-name"> Description </span> <span class="textualItem"> <?=limitTextWords($result->abstract, 100, true, true); ?></span> </div>
-         <div> <span class="facet-name"> Distributor </span> <span class="textualItem"> <?=$result->distributor; ?></span> </div>
-         <div> <span class="facet-name"> Station </span> <span class="textualItem"> <?=$result->station; ?></span> </div>
-         <div> <span class="facet-name">Domain </span> <span class="textualItem"> <?=$result->genre; ?> </span> </div>
+     <!-- Illustrations -->
+     <div class="card shadow mb-4 border-left-primary ">
+       <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary">
+           <a href="<?=$result->landing_page; ?>" target="_blank"> <?=$result->name; ?> </a>
+         </h6>
+       </div>
+       <div class="card-body">
+        <div style="margin-bottom:10px;" class="date"><?=$result->temporal; ?> </div>
+        <div> <span class="facet-name"> Description </span> <span class="textualItem"> <?=limitTextWords($result->abstract, 100, true, true); ?></span> </div>
+        <div> <span class="facet-name"> Distributor </span> <span class="textualItem"> <?=$result->distributor; ?></span> </div>
+        <div> <span class="facet-name"> Station </span> <span class="textualItem"> <?=$result->station; ?></span> </div>
+        <div> <span class="facet-name">Domain </span> <span class="textualItem"> <?=$result->genre; ?> </span> </div>
 
-         <div>
-             <span class="facet-name"> Related to </span>
-             <?php
+        <div>
+            <span class="facet-name"> Related to </span>
+            <?php
         $cnt = 0;
         $image = getIRImage($result->distributor);
         if ($image != "")
@@ -241,9 +245,9 @@ if ($total > 0):
         }
 ?>
 
-        </div>
-        <div> <span class="facet-name"> keywords </span> <span class="textualItem">
-        <?php
+       </div>
+       <div> <span class="facet-name"> keywords </span> <span class="textualItem">
+       <?php
         foreach ($result->keywords as $keyword)
         {
             $cnt++;
@@ -254,11 +258,11 @@ if ($total > 0):
             echo "<span class='items'>" . $keyword . "</span>";
         } ?></span> </div>
 
- </div>
- </div>
- </div>
+</div>
+</div>
+</div>
 
-    <?php
+   <?php
     endforeach;
 endif;
 ?>
@@ -270,13 +274,13 @@ endif;
 <div style="width:29%; display:inline-block; border:1px solid lightgray; border-radius:3px;   box-shadow:0 0 2px 2px #EAEDED; margin-bottom:25px;" id="mapid">
 </div>
 
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
 
- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
 
 <?php
     echo "<script>";
@@ -287,14 +291,14 @@ endif;
 <script>
 
 
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                maxZoom: 18,
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1
-        }).addTo(mymap);
+       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+               maxZoom: 18,
+               attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                       'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+               id: 'mapbox/streets-v11',
+               tileSize: 512,
+               zoomOffset: -1
+       }).addTo(mymap);
 
 </script>
 <?php
@@ -304,77 +308,79 @@ endif;
 ?>
 
 <div class="pages" style="width:100%; text-align:center; font-weight: bold; color:#035ba8;" >
-    <span
-      class="pagination-previous <?php if (!$is_prev_page):
+   <span
+     class="pagination-previous <?php if (!$is_prev_page):
         print 'disabled';
     endif; ?>">
-      <?php if ($is_prev_page)
+     <?php if ($is_prev_page)
     { ?>
-      <a onclick="waiting_on();" href="<?php print $link_prev; ?>">
-        <?php
+     <a onclick="waiting_on();" href="<?php print $link_prev; ?>">
+       <?php
     } ?>
-     <?php //print t('prev')
-     ?>
-        <?php if ($is_prev_page)
+    <?php //print t('prev')
+
+?>
+       <?php if ($is_prev_page)
     { ?> <i class="fas fa-chevron-circle-left" style="font-size:large;"></i> </a> &nbsp; <?php
     } ?>
-    </span>
-    <span>
-      <?php
+   </span>
+   <span>
+     <?php
     if (empty($query) and $start == 1)
     {
 ?>
-        <?php echo t('newest_documents') ?>
-        <?=$stat_limit ?>
-        <?php echo t('newest_documents_of') ?>
-        <?=$total ?>
-        <?php echo t('newest_documents_of_total') ?>
-        <?php
+       <?php echo t('newest_documents') ?>
+       <?=$stat_limit ?>
+       <?php echo t('newest_documents_of') ?>
+       <?=$total ?>
+       <?php echo t('newest_documents_of_total') ?>
+       <?php
     }
     else
     {
 ?>
-        <?php if ($view == "preview")
+       <?php if ($view == "preview")
         { ?>
-          <?php echo t('result'); ?>
-          <?=$page ?>
-          <?php echo t('result of'); ?>
-          <?=$total ?>
-        <?php
+         <?php echo t('result'); ?>
+         <?=$page ?>
+         <?php echo t('result of'); ?>
+         <?=$total ?>
+       <?php
         }
         else
         { ?>
-          <?php echo t('page'); ?>
-          <?=$page ?>
-          <?php echo t('page of'); ?>
-          <?=$pages ?>
-          (<?php echo t('results'); ?>
-          <?=$start ?>
-          <?php echo t('result to'); ?>
-          <?=$end ?>
-          <?php echo t('result of'); ?>
-          <?=$total ?>
-          )
-          <?php
+         <?php echo t('page'); ?>
+         <?=$page ?>
+         <?php echo t('page of'); ?>
+         <?=$pages ?>
+         (<?php echo t('results'); ?>
+         <?=$start ?>
+         <?php echo t('result to'); ?>
+         <?=$end ?>
+         <?php echo t('result of'); ?>
+         <?=$total ?>
+         )
+         <?php
         }
     }
 ?>
-    </span>
-  <span
-      class="pagination-next <?php if (!$is_next_page):
+   </span>
+ <span
+     class="pagination-next <?php if (!$is_next_page):
         print 'disabled';
     endif; ?>">
-      <?php if ($is_next_page)
+     <?php if ($is_next_page)
     { ?>
-      <a onclick="waiting_on();" href="<?php print $link_next; ?>">
-        <?php
+     <a onclick="waiting_on();" href="<?php print $link_next; ?>">
+       <?php
     } ?>
-      <?php //print t('next')
-     ?>
-        <?php if ($is_next_page)
+     <?php //print t('next')
+
+?>
+       <?php if ($is_next_page)
     { ?>&nbsp; <i class="fas fa-chevron-circle-right" style="font-size:large;"></i></a><?php
     } ?>
-    </span>
+   </span>
 </div>
 
 
@@ -382,40 +388,38 @@ endif;
 endif; ?>
 <php?
 //----------------------------------------------------------------------------------------------------------------------
-
-
 function CallAPI($method, $url, $data = false)
 {
-    $curl = curl_init();
+   $curl = curl_init();
 
-    switch ($method)
-    {
-        case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
+   switch ($method)
+   {
+       case "POST":
+           curl_setopt($curl, CURLOPT_POST, 1);
 
-            if ($data)
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            break;
-        case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
-            break;
-        default:
-            if ($data)
-                $url = sprintf("%s?%s", $url, http_build_query($data));
-    }
+           if ($data)
+               curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+           break;
+       case "PUT":
+           curl_setopt($curl, CURLOPT_PUT, 1);
+           break;
+       default:
+           if ($data)
+               $url = sprintf("%s?%s", $url, http_build_query($data));
+   }
 
-    // Optional Authentication:
-    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    curl_setopt($curl, CURLOPT_USERPWD, "username:password");
+   // Optional Authentication:
+   curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+   curl_setopt($curl, CURLOPT_USERPWD, "username:password");
 
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+   curl_setopt($curl, CURLOPT_URL, $url);
+   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
-    $result = curl_exec($curl);
+   $result = curl_exec($curl);
 
-    curl_close($curl);
+   curl_close($curl);
 
-    return $result;
+   return $result;
 }
 
 ?>
