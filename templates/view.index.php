@@ -75,10 +75,6 @@ if ($_POST['txtAuthors']!="" OR $_POST['txtStation']!="" OR $_POST['txtDomain']!
     $_POST['txtFrom']!="" OR $_POST['txtTo']!="") {
         $isSwitched=true;
     }
-
-
-
-
     //----------------------------------------------------------------------------------------------------------------------
     if($_SESSION['CurrentCategory'] != $view) {$isSwitched=true;}
 
@@ -94,7 +90,9 @@ if ($_POST['txtAuthors']!="" OR $_POST['txtStation']!="" OR $_POST['txtDomain']!
     } elseif ($view == 'APIs') {
         $_SESSION['CurrentCategory'] = "APIs";
     } elseif ($view == 'ShowImageResults') {
-        $_SESSION['CurrentCategory'] = "ShowImageResults";
+             $_SESSION['CurrentCategory'] = "ShowImageResults";
+    } elseif ($view == 'Notebooks') {
+        $_SESSION['CurrentCategory'] = "Notebooks";
     }
     //----------------------------------------------------------------------------------------------------------------------
 
@@ -211,7 +209,12 @@ if ($_POST['txtAuthors']!="" OR $_POST['txtStation']!="" OR $_POST['txtDomain']!
               <i class="fas fa-code" style="<?php echo ($_SESSION['CurrentCategory'] == 'APIs' ? 'color:yellow;font-weight: bold;' : ''); ?>" ></i>
               <span>APIs</span>
         </a>
-
+        <a class="nav-link"
+            style="<?php echo ($_SESSION['CurrentCategory'] == 'Notebooks' ? 'color:yellow;font-weight: bold;' : ''); ?>"
+            href="<?php echo buildurl($params, 'view', 'Notebooks', null, null); ?>" >
+              <i class="fas fa-book-open" style="<?php echo ($_SESSION['CurrentCategory'] == 'Notebooks' ? 'color:yellow;font-weight: bold;' : ''); ?>" ></i>
+              <span>Notebooks</span>
+        </a>
        <!-- Visualization Button --------------------------------------------- -->
         <?php
     // Setup parameters for graph visualization by Open Semantic Visual Linked Data Graph Explorer
@@ -340,6 +343,9 @@ if ($_POST['txtAuthors']!="" OR $_POST['txtStation']!="" OR $_POST['txtDomain']!
         }
          elseif ($view == 'Datasets') {
             include 'templates/datasetSearch.php';
+        }
+         elseif ($view == 'Notebooks') {
+            include 'templates/Notebooks.php';
         }
         elseif ($view == 'VisualizeWebsites') {
             include 'templates/pagination.php';

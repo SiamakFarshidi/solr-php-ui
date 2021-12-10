@@ -3,14 +3,6 @@
 <?php
 //echo CallAPI("GET", "http://localhost/search-apps/dataset_elastic/genericsearch?term=icos");
 
-if( isset($_POST['selectedFacets']) ) {
-$_POST['selectedFacets'];
-$_SESSION["selectedFacets"]=$_POST['selectedFacets'];
-echo '<script type="text/JavaScript"> location.reload(); </script>';
-exit();
-
-}
-
 //echo $_SESSION["selectedFacets"];
 
 
@@ -18,14 +10,14 @@ if ( $query==""){
     $query="*";
 }
 
-$searchCriteria = str_replace(' ', '%20', 'http://localhost/search-apps/dataset_elastic/genericsearch?term=' . $query);
+$searchCriteria = str_replace(' ', '%20', 'http://localhost/search-apps/notebookSearch/genericsearch?term=' . $query);
 //echo $searchCriteria;
 $response = file_get_contents($searchCriteria);
 //echo $response ;
 $response = json_decode($response);
 
 
-$total= count($response->hits->hits);
+$total= count($response->hits);
 
 if ($total == 0)
 {
@@ -36,20 +28,23 @@ if ($total == 0)
 <?php
 if ($total > 0):?>
 <div style="width:100%; padding-bottom:10px;  padding-left:20px; font-size:small;"> <i> <?php echo $total; ?> results found. </i></div>
-<div style="width:80%; display: inline-block; ">
+<div style="width:100%; display: inline-block; ">
 
-    <?php  foreach ($response->hits->hits as $result) { ?>
+    <?php  foreach ($response->hits as $result) { ?>
 
       <div class="col-lg-12 mb-12" id="<?=$result_nr ?>">
         <div class="card shadow mb-4 border-left-primary ">
            <div class="card-header py-3">
              <h6 class="m-0 font-weight-bold text-primary">
-               <a href="<?=getURL($result->_source->url); ?>" target="_blank">  <?= getName($result->_source->name, $result->_source->ResearchInfrastructure) ?> </a>
+               <a href="<?= $result->html_url ?>" target="_blank">  <?= $result->name ?> </a>
              </h6>
            </div>
            <div class="card-body">
-                <div> <span class="facet-name"> Description </span> <span class="textualItem"> <?= getDescription($result->_source) ?></span> </div>
-                <div> <span class="facet-name"> Source </span> <span class="textualItem"> <?= getRILogo($result->_source->ResearchInfrastructure) ?></span> </div>
+
+                <div> <span class="facet-name"> Description </span> <span class="textualItem"> <?= $result->description ?></span> </div>
+                <div> <span class="facet-name"> Size </span> <span class="textualItem"> <?= $result->size ?> KB</span> </div>
+                <div> <a href="<?= $result->git_url ?>" target="_blank">  Github </a> </div>
+
             </div>
         </div>
       </div>
@@ -58,21 +53,6 @@ if ($total > 0):?>
 </div>
 <?php endif; ?>
 
-
-
-<?php if ($total > 0): ?>
-    <div style="width:19%; display:inline-block; border:1px solid lightgray;
-                border-radius:3px; margin-left:0.5%; box-shadow:0 0 2px 2px #EAEDED; margin-bottom:25px;
-                background-color:white; font-size:small; color:black; padding: 20px;" id="mapid">
-    <?php
-    printRIFacets($response);
-    printthemeFacets($response);
-    printspatialCoverageFacets($response);
-    printmeasurementTechniqueFacets($response);
-    printPublishersFacets($response);
-    ?>
-    </div>
-<?php endif; ?>
 
 
 
