@@ -31,6 +31,8 @@ function get_icon($ResultFileType)
 <?php
 $result_nr = 0;
 
+$strSearchResultAnalysis="";
+
 foreach ($results->response->docs as $doc):
 
     //*------------Modify----Begin
@@ -38,6 +40,7 @@ foreach ($results->response->docs as $doc):
     if (!is_valid_result($doc->content_type_ss)) continue;
     print_r("<br />");
     //*------------Modify----End
+
 
 
     $result_nr++;
@@ -91,6 +94,10 @@ foreach ($results->response->docs as $doc):
         $file_size_formated = filesize_formatted($file_size);
     }
 
+
+
+
+
 ?>
 <div class="col-lg-12 mb-12" id="<?=$result_nr?>">
   <!-- Illustrations -->
@@ -127,4 +134,17 @@ foreach ($results->response->docs as $doc):
   </div>
 </div>
 <?php
+
+
+    //-------------------------------------------------------------------------------------
+    $strSearchResultAnalysis=$strSearchResultAnalysis.
+                             $id .",".
+                             $title .",".
+                             $datetime.",".
+                             implode(" - ", $facets).",".
+                             "\n";
+    //--------------------------------------------------------------------------------------
+    echo $strSearchResultAnalysis;
+
+
 endforeach; ?>

@@ -23,12 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad9a1188-3888-4a81-a72d-4860f7a2e609" name="Default Changelist" comment="updated">
-      <change afterPath="$PROJECT_DIR$/templates/Notebooks.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/test.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/datasetSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/datasetSearch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/temp" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/view.index.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view.index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/view.list.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view.list.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,13 +107,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598216209098</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Modification of search results (icons, etc.)">
-      <created>1604060679619</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1604060679619</updated>
     </task>
     <task id="LOCAL-00016" summary="Modification of search results (icons, etc.)">
       <created>1604891197081</created>
@@ -454,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638443024796</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="updated">
+      <created>1639139183112</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1639139183113</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
